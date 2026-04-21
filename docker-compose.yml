@@ -95,7 +95,7 @@ services:
 
   # ── LocalStack (emulação AWS) ──────────────────────────────────────────────
   localstack:
-    image: localstack/localstack:latest
+    image: localstack/localstack:3.8
     environment:
       SERVICES: s3,ses,secretsmanager
       DEFAULT_REGION: us-east-1
@@ -126,10 +126,10 @@ services:
       - ./frontend:/app
       - /app/node_modules
     ports:
-      - "5173:5173"
+      - "3000:3000"
     environment:
-      VITE_API_URL: http://localhost:8000
-      VITE_WS_URL: ws://localhost:8000
+      VITE_API_URL: http://localhost:3000
+      VITE_WS_URL: ws://localhost:3000
 
 volumes:
   postgres_data:
